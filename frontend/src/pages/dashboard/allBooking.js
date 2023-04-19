@@ -27,9 +27,9 @@ const AllBooking = ({ ...others }) => {
       headers: { "content-type": "application/json" },
     };
     await axios
-      .get("/api/v1/booking/getAll", options)
+      .get(process.env.REACT_APP_SERVER_URL+"/api/v1/booking/getAll", options)
       .then((response) => {
-        console.log(response)
+        console.log("Server Response", response.data)
         return setShowData(response.data);
       })
       .catch((err) => console.log(err));

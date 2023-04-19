@@ -49,7 +49,7 @@ const BookingForm = ({ ...others }) => {
       headers: { "content-type": "application/json" },
     };
     await axios
-      .post("api/v1/booking/submit", userData, options)
+      .post(process.env.REACT_APP_SERVER_URL+"/api/v1/booking/submit", userData, options)
       .then((response) => {
         if (response.data.success) {
           onEmailSend(userData);
